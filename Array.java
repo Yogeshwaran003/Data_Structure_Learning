@@ -38,6 +38,10 @@ class dynamicArray{
         }
         size--;
     }
+
+    public void replace(int val, int pos){
+        arr[pos]=val;
+    }
 }
 class Array{
     public static void main(String args[]){
@@ -53,6 +57,7 @@ class Array{
             System.out.println("3. Delete");
             System.out.println("4. display");
             System.out.println("5. exit");
+            System.out.println("6. replace");
             System.out.println("=============================================================================");
             int order = in.nextInt();
             switch (order) {
@@ -72,6 +77,11 @@ class Array{
                 }
                 case 4 -> list.display();
                 case 5 -> System.exit(0);
+                case 6 -> {
+                    val=in.nextInt();
+                    pos=in.nextInt();
+                    list.replace(val, pos);
+                }
                 default -> throw new AssertionError();
             }
         }
