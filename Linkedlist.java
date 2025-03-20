@@ -29,6 +29,7 @@ class connectedlist{
             System.out.print(temp.data+" ");
             temp=temp.next;
         }
+        System.out.println("");
     }
 
     public void insert(int val,int pos){
@@ -101,6 +102,19 @@ class connectedlist{
         }
         temp.data=val;
     }
+
+    public void reverse(){
+        Node prev = null;
+        Node next = null;
+        Node curr = head;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    }
 }
 class Linkedlist {
 
@@ -118,6 +132,8 @@ class Linkedlist {
         list.Delete(6);
         list.insert(101, 6);
         list.replace(99, 3);
+        list.show();
+        list.reverse();
         list.show();
       } 
 }
