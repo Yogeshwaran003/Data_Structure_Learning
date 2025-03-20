@@ -83,12 +83,23 @@ class connectedlist{
                 temp=temp.next;
             }
             temp.next=null;
+            size--;
+            return;
         }
 
         for(int i=0;i<pos-1;i++){
             temp=temp.next;
         }
         temp.next=temp.next.next;
+        size--;
+
+    }
+    public void replace(int val,int pos){
+        Node temp = head;
+        for(int i = 0 ; i<pos;i++){
+            temp=temp.next;
+        }
+        temp.data=val;
     }
 }
 class Linkedlist {
@@ -104,7 +115,9 @@ class Linkedlist {
         list.addinend(15);
         list.addinend(16);
         list.insert(100, 6);
-        list.Delete(0);
+        list.Delete(6);
+        list.insert(101, 6);
+        list.replace(99, 3);
         list.show();
       } 
 }
