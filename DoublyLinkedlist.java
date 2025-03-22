@@ -86,6 +86,30 @@ class twoconlist{
         }
         temp.data=val;
     }
+
+    public void reverse(){
+        Node curr=head;
+        Node prev=null;
+        Node next=null;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+
+        curr=tail;
+        prev=null;
+        next=null;
+        while(curr!=null){
+            prev=curr.prev;
+            curr.prev=next;
+            next=curr;
+            curr=prev;
+        }
+        tail=next;
+    }
 }
 
 class DoublyLinkedlist{
@@ -102,6 +126,12 @@ class DoublyLinkedlist{
         list.Delete(4);
         list.addinend(100);
         list.replace(101, 3);
+        list.display();
+        list.displayR();
+        list.reverse();
+        System.out.println("");
+        System.out.println("");
+        System.out.println("After the Reverse the linkedlist");
         list.display();
         list.displayR();
     } 
