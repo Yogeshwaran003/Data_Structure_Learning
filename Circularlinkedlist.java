@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import javax.print.attribute.Size2DSyntax;
 
 class roundlinkedlist{
     Node head;
@@ -79,9 +78,9 @@ class roundlinkedlist{
             size--;
             return;
         }
-        if(pos==size){
+        if(pos==size-1){
             Node temp = head;
-            while (temp.next.next==tail) { 
+            while (temp.next!=tail) { 
                 temp=temp.next;
             }
             tail=temp;
@@ -109,7 +108,9 @@ public class Circularlinkedlist {
         list.addinend(100);
         list.insert(30, 3);
         list.delete(5);
-        // list.display();
+        list.display();
+        // list.reverse();
+        list.display();
         System.out.println(" ");
         System.out.println(list.head==list.tail.next);
     }    
