@@ -29,7 +29,6 @@ class roundlinkedlist{
     public void addinend(int val){
         if(head==null){
             insetAtStart(val);
-            size++;
             return;
         }
         Node newnode = new Node(val);
@@ -95,6 +94,24 @@ class roundlinkedlist{
         temp.next=temp.next.next;
         size--;
     }
+
+    public void reverse(){
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+        
+        do {
+            next = current.next; 
+            current.next = prev; 
+            prev = current; 
+            current = next; 
+        } while (current != head); 
+
+
+        tail = head; 
+        tail.next = prev; 
+        head = prev; 
+    }
 }
 
 public class Circularlinkedlist {
@@ -109,7 +126,7 @@ public class Circularlinkedlist {
         list.insert(30, 3);
         list.delete(5);
         list.display();
-        // list.reverse();
+        list.reverse();
         list.display();
         System.out.println(" ");
         System.out.println(list.head==list.tail.next);
