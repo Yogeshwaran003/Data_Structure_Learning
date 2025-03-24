@@ -24,6 +24,18 @@ class stackinarray{
 
     }
 
+    public boolean isEmpty(){
+        if(size==0){
+            return true;
+        }
+        return false;
+    }
+
+    public int size(){
+        System.out.println(size);
+        return size;
+    }
+
     public void display(){
         for(int i=0;i<size;i++){
             System.out.print(arr[i]+" ");
@@ -47,5 +59,7 @@ class Stack{
         list.pop();
         list.display();
         list.peek();
+        System.out.println(list.isEmpty());
+        list.size();
     }
 }
