@@ -4,6 +4,12 @@ class queueusingarray{
     int[] arr = new int[capacity];
     
     public void enqueue(int val){
+        if(size==capacity){
+            capacity*=2;
+            int[] temp = new int[capacity];
+            System.arraycopy(arr, 0, temp, 0, size);
+            arr=temp;
+        }
         arr[size++]=val;   
     }
 
