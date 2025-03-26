@@ -103,18 +103,34 @@ class Searcharray{
         return false;
 
     }
-
+    
+    public static int findB(int[] arr , int val){
+        int start=0;
+        int end = arr.length-1;
+        while(start<=end){
+            int mid = (start+end)/2;
+            if(val>arr[mid]){
+                start=mid+1;
+            }else if (val<arr[mid]){
+                end=mid-1;
+            }else{
+                return mid;
+            }
+        }
+        return -1;
+    }
 }
 
 class Search{
     public static void main(String[] args){
         int[] arr = {1,2,3,4,5,6,7,8,9};
         int[][] arr1 = {{1,2},{3,4},{5,6},{7,8,9}};
-        System.err.println(" ");
+        System.out.println(" ");
         System.out.println(Searcharray.find(arr, 6));
         System.out.println(Searcharray.contains(arr, 6));
         System.out.println(Searcharray.find("Hello", 'l'));
         System.out.println(Searcharray.contains("Hello", 'l'));
         System.out.println(Arrays.toString(Searcharray.find(arr1,6)));
+        System.out.println(Searcharray.findB(arr, 7));
     }
 }
