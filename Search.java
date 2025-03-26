@@ -1,4 +1,5 @@
-class LinearSearcharray{
+import java.util.*;
+class Searcharray{
 
     public static int find(int[] arr,int val){
 
@@ -108,10 +109,12 @@ class LinearSearcharray{
 class Search{
     public static void main(String[] args){
         int[] arr = {1,2,3,4,5,6,7,8,9};
+        int[][] arr1 = {{1,2},{3,4},{5,6},{7,8,9}};
         System.err.println(" ");
-        System.out.println(LinearSearcharray.find(arr, 6));
-        System.out.println(LinearSearcharray.contains(arr, 6));
-        System.out.println(LinearSearcharray.find("Hello", 'l'));
-        System.out.println(LinearSearcharray.contains("Hello", 'l'));
+        System.out.println(Searcharray.find(arr, 6));
+        System.out.println(Searcharray.contains(arr, 6));
+        System.out.println(Searcharray.find("Hello", 'l'));
+        System.out.println(Searcharray.contains("Hello", 'l'));
+        System.out.println(Arrays.toString(Searcharray.find(arr1,6)));
     }
 }
