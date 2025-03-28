@@ -27,15 +27,32 @@ class treesturcture{
         node.right=newnode;
     } 
 
-    public void display(Node root){
+    public void preorder(Node root){
         Node temp = root;
         if(temp==null){
             return;
         }
         System.out.print(temp.data+" ");
-        display(temp.left);
-        display(temp.right);
-        // System.out.println("");
+        preorder(temp.left);
+        preorder(temp.right);
+    }
+    public void inorder(Node root){
+        Node temp = root;
+        if(temp==null){
+            return;
+        }
+        inorder(temp.left);
+        System.out.print(temp.data+" ");
+        inorder(temp.right);
+    }
+    public void postorder(Node root){
+        Node temp = root;
+        if(temp==null){
+            return;
+        }
+        postorder(temp.left);
+        postorder(temp.right);
+        System.out.print(temp.data+" ");
     }
 
 }
@@ -43,6 +60,7 @@ class treesturcture{
 class Tree{
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
+        System.out.println(" ");
         treesturcture tree = new treesturcture(12);
         tree.insertLeft(tree.root, 18);
         tree.insertRight(tree.root, 24);
@@ -50,6 +68,10 @@ class Tree{
         tree.insertRight(tree.root.left, 36);
         tree.insertLeft(tree.root.right, 42);
         tree.insertRight(tree.root.right, 48);
-        tree.display(tree.root);
+        tree.preorder(tree.root);
+        System.out.println(" ");
+        tree.inorder(tree.root);
+        System.out.println(" ");
+        tree.postorder(tree.root);
     }
 }
