@@ -54,7 +54,7 @@ class treesturcture{
         postorder(temp.right);
         System.out.print(temp.data+" ");
     }
-
+    
 }
 
 class Tree{
