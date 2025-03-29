@@ -60,6 +60,36 @@ class binarytreesearch{
             return search(tree.right, val);
         }
     }
+
+    public Node delete(Node tree,int val){
+        if(tree==null){
+            return tree;
+        }
+
+        if(tree.key < val){
+            tree.right = delete(tree.right, val);
+        }else if(tree.key > val){
+            tree.left = delete(tree.left, val);
+        }else{
+            if(tree.right==null){
+                return tree.left;
+            }else if(tree.left==null){
+                return tree.right;
+            }
+            tree.key=min(tree.right);
+            tree.right=delete(tree.right,tree.key);
+        }
+        return tree;
+    }
+
+    public int min(Node tree){
+        int temp=tree.key;
+        while(tree.left!=null){
+            temp = tree.key;
+            tree=tree.left;
+        }
+        return temp;
+    }
    
 }
 
@@ -77,5 +107,7 @@ public class BinarSeacrhTree {
         tree.insert(91);
         tree.display();
         System.out.println(tree.search(tree.root, 100));
+        tree.delete(tree.root, 87);
+        tree.display();
     }    
 }
