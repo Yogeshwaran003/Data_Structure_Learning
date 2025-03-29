@@ -42,9 +42,23 @@ class binarytreesearch{
         if(temp==null){
             return;
         }
-        System.out.print(temp.key+" ");
         display(temp.left);
+        System.out.print(temp.key+" "); // yogi you have to print it inOrder to check if the tree is right NOTE => return if(tree is right) = return increase order else random order
         display(temp.right);
+    }
+
+    public boolean search(Node tree,int val){
+        if(tree==null){
+            return false;
+        }
+        if(tree.key==val){
+            return true;
+        }
+        if(tree.key>val){
+            return search(tree.left, val);
+        }else{
+            return search(tree.right, val);
+        }
     }
    
 }
@@ -55,7 +69,13 @@ public class BinarSeacrhTree {
         binarytreesearch tree = new binarytreesearch(0);
         tree.insert(3);
         tree.insert(1);
-        tree.insert(2);
+        tree.insert(12);
+        tree.insert(25);
+        tree.insert(76);
+        tree.insert(87);
+        tree.insert(16);
+        tree.insert(91);
         tree.display();
+        System.out.println(tree.search(tree.root, 100));
     }    
 }
