@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class graphinarraylist{
-    ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
+    static ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
 
     graphinarraylist(int val){
         for(int i=0;i<val;i++){
@@ -23,6 +25,32 @@ class graphinarraylist{
             System.out.println(" ");
         }
     }
+
+    public static void BFS(int v){
+
+        int n = arr.size();
+
+        boolean[] visited = new boolean[n];
+
+        Queue<Integer> q = new LinkedList<>();
+
+        q.add(v);
+        
+        visited[v]=true;
+
+        while(!q.isEmpty()){
+            int value = q.remove();
+            System.out.print(value+" ");
+            for(int i=0;i<arr.get(value).size();i++){
+                int check = arr.get(value).get(i);
+                if(!visited[check]){
+                    q.add(check);
+                    visited[check]=true;
+                }
+            }
+        }
+
+    }
 }
 
 class Graph{
@@ -38,6 +66,6 @@ class Graph{
     graph.addEdge ( 0,  4);
     graph.addEdge ( 1,  4);
     graph.display();
-    
+    graph.BFS(0);
     }
 }
